@@ -30,20 +30,24 @@ console.log(obj(1, 2)); // undefined
 obj = (x, y) => ({x, y});
 console.log(obj(1, 2)); // {x:1, y:2}
 
+
 /**
  * 기존 function()과 화살표 함수가 다른점
  *      -> 기존 function()의 this는 본인이 포함된 객체를 가리키지만, 화살표 함수의 this는 상위 스코프의 this를 가리킨다!!
  *      즉, 화살표 함수가 기존 function()을 대체하는 것은 아니다!
  *
- *      주의할 점) function() 의 this는 global을 가리킴, 이것은 callback에서도 동일하게 적용됨
+ *      주의할 점)
+ *      function() 의 this는 global을 가리킴, 이것은 callback에서도 동일하게 적용됨
  *      단, 메소드(객체에 포함된 함수)의 this는 해당 객체를 가리킴
+ *
+ *      또 주의할 점)
+ *      전역 환경의 this는 module.exports를 가리킨다. 일반 함수의 this는 global를 가리키는데 반해...
  *
  * 추천하는 방법
  * 1) 최대한 this 사용을 피한다
  * 2) this가 꼭 필요한 경우 function()을 사용한다.
  * 3) this가 필요하지 않은 경우 화살표 함수를 사용한다.
  * */
-
 const relationship1 = {
     name:'jih',
     friends: ['1', '2', '3'],
