@@ -22,3 +22,19 @@ module.exports = {
   odd,
   even,
 };
+
+/*
+위 코드는
+exports.odd = odd;
+exports.even = even;
+과 동일한 코드
+ */
+
+/**
+ * module.exports === exports === {} === 빈객체(초기)
+ * 단, module.expors에 다른 값을 대입하는 경우 module.exports == exports 간에 참조관계가 끊김
+ *  -> exports를 쓸 때에는 exports만 사용하고, module.exports를 쓸 때에는 module.exports만 사용해야함
+ *
+ *  보통, 2개 이상을 export할 경우 exports.odd = odd;와 같은 식으로 사용하고
+ *  1개만 export할 경우 module.export = odd와 같은 식으로 사용함
+ */
